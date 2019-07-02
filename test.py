@@ -1,4 +1,4 @@
-from __future__ import absolute_import, division, print_function
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 # TensorFlow and tf.keras
 import tensorflow as tf
@@ -142,6 +142,8 @@ predictions_single = model.predict(img)
 print(predictions_single)
 
 plot_value_array(0, predictions_single, test_labels)
-_ = plt.xticks(range(10), class_names, rotation=45)
+plt.xticks(range(10), class_names, rotation=45)
+plt.show()
 
-np.argmax(predictions_single[0])
+prediction_result = np.argmax(predictions_single[0])
+print(prediction_result)
