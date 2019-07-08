@@ -35,8 +35,8 @@ def parseXML(xmlfile):
                 #print(child.text)
                 desc = child.text
 
-                print(desc.find("<\/a>"))
-                #print(child.text)
+                print(desc.find("a"))
+                #print(child.text
                 newsitems.append(child.text)
 
             #else:
@@ -76,4 +76,5 @@ def print_sentiment_scores(sentence):
     snt = analyser.polarity_scores(sentence)
     print("{:-<40} {}".format(sentence, str(snt)))
 
-print_sentiment_scores(newsitems[0])
+#print_sentiment_scores(newsitems[0])
+print_sentiment_scores("Deutsche will cut 18,000 jobs for a global headcount of around 74,000 employees by 2022.")
