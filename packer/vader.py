@@ -7,6 +7,7 @@ import requests
 import xml.etree.ElementTree as ET
 import re
 
+
 def loadRSS():
     # url of rss feed
     url = 'https://finance.yahoo.com/rss/popularstories'
@@ -35,7 +36,7 @@ def parseXML(xmlfile):
                 #print(child.text)
                 desc = child.text
 
-                print(desc.find("a"))
+                #print(desc.find("a"))
                 #print(child.text
                 newsitems.append(child.text)
 
@@ -73,8 +74,20 @@ analyser = SentimentIntensityAnalyzer()
 
 
 def print_sentiment_scores(sentence):
+    bad=['flaw','too']
     snt = analyser.polarity_scores(sentence)
-    print("{:-<40} {}".format(sentence, str(snt)))
+    #print(snt)
+    #print("{:-<40} {}".format(sentence, str(snt)))
+    #scores="{:-<40} {}".format(sentence, str(snt))
+    scores=str(snt)
+    result = scores.find('compound\': ')
+    comp=scores[result+11:len(scores)-1]
+    fcomp=float(comp)
+    if any(neg_factor in sentence for neg_factor in bad):
+    #if "flaw" in sentence:
+        fcomp=fcomp-0.1
+    print(fcomp)
 
 #print_sentiment_scores(newsitems[0])
-print_sentiment_scores("Deutsche will cut 18,000 jobs for a global headcount of around 74,000 employees by 2022.")
+stock_sent=("")
+print_sentiment_scores(stock_sent)
