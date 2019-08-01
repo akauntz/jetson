@@ -5,18 +5,18 @@ import requests
 from packer import rss
 from packer import act_graph
 #from packer import symbol_getter
-import Tkinter
-import tkMessageBox
+#import Tkinter
+#import tkMessageBox
 
-top = Tkinter.Tk()
+#top = Tkinter.Tk()
 
-def helloCallBack():
-   tkMessageBox.showinfo( "Hello Python", "Hello World")
+#def helloCallBack():
+   #tkMessageBox.showinfo( "Hello Python", "Hello World")
 
-B = Tkinter.Button(top, text ="Hello", command = helloCallBack)
+#B = Tkinter.Button(top, text ="Hello", command = helloCallBack)
 
-B.pack()
-top.mainloop()
+#B.pack()
+#top.mainloop()
 
 analyser = SentimentIntensityAnalyzer()
 
